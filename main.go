@@ -2,22 +2,28 @@ package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 )
 
 func main() {
+	metricName := flag.String("metric", "aws.", "metrics name prefix, eg: aws. or cpu.")
+	flag.Parse()
+
 	c, err := New()
 	if err != nil {
 		panic(err)
 	}
 
-	res := search(c, "aws.")
-	err = writeToJSONFile(res)
-	if err != nil {
-		panic(err)
+	res := search(c, *metricName)
+	if len(res) > 0 {
+		err = writeToJSONFile(res, *metricName)
+		if err != nil {
+			panic(err)
+		}
 	}
 
-	fmt.Println(len(res))
+	fmt.Printf("There are %d metrics found for %s metric prefix\n", len(res), *metricName)
 }
 
 func search(c *Client, metric string) []string {

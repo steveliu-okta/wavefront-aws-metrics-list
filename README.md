@@ -14,5 +14,11 @@ This tool is for finding all the metrics under aws root namespace in wavefront.
 https://okta.wavefront.com/metrics#_v01(q:aws.)
 
 ```bash
-go run *.go
+go run *.go  -metric=aws.
+
+go run *.go  -metric=cpu.
+
+go run *.go  -metric=ecs.containerinsights.
+
+go run *.go  -metric=monolith.
 ```

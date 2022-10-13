@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 )
 
@@ -14,8 +15,8 @@ func contains(strArr []string, check string) bool {
 	return false
 }
 
-func writeToJSONFile(data []string) error {
-	file, err := os.OpenFile("output.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+func writeToJSONFile(data []string, filename string) error {
+	file, err := os.OpenFile(fmt.Sprintf("%s_metrics.txt", filename), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		return err
 	}
