@@ -6,18 +6,15 @@ import (
 )
 
 func main() {
-	var res []string
 	c, err := New()
 	if err != nil {
 		panic(err)
 	}
 
-	aResp := &Resp{}
-	err = c.GetAWSMetricsList(context.TODO(), aResp, "aws.")
-	for _, mm := range aResp.Metrics {
-		restemp := search(c, mm)
-		err = writeToJSONFile(restemp)
-		res = append(res, restemp...)
+	res := search(c, "aws.")
+	err = writeToJSONFile(res)
+	if err != nil {
+		panic(err)
 	}
 
 	fmt.Println(len(res))
