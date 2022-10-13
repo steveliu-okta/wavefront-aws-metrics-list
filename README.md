@@ -9,9 +9,7 @@ l (integer, optional) - limit number of results to fetch; 1000 is the maximum; d
 p (string, optional) - last found metric name; used for pagination
 ```
 
-This tool is for finding all the metrics under aws root namespace in wavefront.
-
-https://okta.wavefront.com/metrics#_v01(q:aws.)
+This tool is for finding all the metrics with a specific prefix in wavefront.
 
 ```bash
 go run *.go  -metric=aws.
