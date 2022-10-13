@@ -16,7 +16,7 @@ func contains(strArr []string, check string) bool {
 }
 
 func writeToJSONFile(data []string, filename string) error {
-	file, err := os.OpenFile(fmt.Sprintf("%s_metrics.txt", filename), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	file, err := os.OpenFile(fmt.Sprintf("output_data/%s_metrics.txt", filename), os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		return err
 	}

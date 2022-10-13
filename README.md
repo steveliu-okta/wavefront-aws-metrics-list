@@ -15,10 +15,8 @@ https://okta.wavefront.com/metrics#_v01(q:aws.)
 
 ```bash
 go run *.go  -metric=aws.
-
 go run *.go  -metric=cpu.
-
 go run *.go  -metric=ecs.containerinsights.
-
 go run *.go  -metric=monolith.
+go run *.go  -metric=GenericJMX.
 ```
